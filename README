@@ -1,0 +1,17 @@
+# A simple project to show hypercore working on mobile
+
+This project has multiple branches, each working towards demonstrating hypercore on mobile using a different build system.
+
+Commands:
+- `$ yarn setup`
+  Initialize the repo
+- `$ yarn start`
+  Launch development server and configure ip & port (leave running)
+- `$ yarn build-android`
+  Create an apk
+- `$ yarn run-android`
+  Launch on connected device
+- `$ yarn build-ios`
+  TODO: build for iphone once I get a mac
+- `$ yarn run-ios`
+  TODO: launch on connected iphone once I get a mac
