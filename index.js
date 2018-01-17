@@ -1,5 +1,9 @@
 import './shim';
-import { AppRegistry } from 'react-native';
+import { KeepAwake, registerRootComponent } from 'expo';
 import App from './App';
 
-AppRegistry.registerComponent('ReactNativeHypercoreExample', () => App);
+if (__DEV__) {
+  KeepAwake.activate();
+}
+
+registerRootComponent(App);
