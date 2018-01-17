@@ -1,22 +1,76 @@
 {
-  "name": "ReactNativeHypercoreExample",
+  "main": "index.js",
+  "name": "reactNativeHypercoreExample",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
-  },
   "dependencies": {
+    "asyncstorage-down": "^4.0.1",
+    "buffer": "^4.9.1",
+    "constants-browserify": "^1.0.0",
+    "events": "^1.0.0",
+    "hypercore": "^6.12.0",
+    "path-browserify": "0.0.0",
+    "process": "^0.11.0",
     "react": "16.2.0",
-    "react-native": "0.52.0"
+    "react-native": "0.52.0",
+    "react-native-crypto": "^2.1.0",
+    "react-native-level-fs": "^3.0.0",
+    "react-native-randombytes": "^3.0.0",
+    "readable-stream": "1.0.33",
+    "stream-browserify": "^1.0.0",
+    "util": "~0.10.3",
+    "vm-browserify": "0.0.4"
   },
   "devDependencies": {
-    "babel-jest": "22.1.0",
+    "babel-jest": "22.0.6",
     "babel-preset-react-native": "4.0.0",
-    "jest": "22.1.1",
-    "react-test-renderer": "16.2.0"
+    "child_process": "^1.0.2",
+    "flow-bin": "^0.63.1",
+    "jest": "22.0.6",
+    "metro-bundler": "^0.22.1",
+    "react-devtools": "^3.0.0",
+    "react-native-cli": "^2.0.1",
+    "react-test-renderer": "16.2.0",
+    "rn-nodeify": "^8.3.0"
+  },
+  "scripts": {
+    "start": "react-native start --transformer extrahacksTransformer.js",
+    "build-android": "cd android && ./gradlew assembleDebug",
+    "run-android": "react-native run-android",
+    "run-ios": "react-native run-ios",
+    "startnocache": "react-native start --transformer extrahacksTransformer.js --reset-cache",
+    "devtools": "react-devtools",
+    "test": "flow && jest",
+    "postinstall": "rn-nodeify --yarn --install buffer,constants,crypto,events,fs,path,process,stream,util,vm --hack && react-native link",
+    "setup": "yarn install && react-native eject && react-native link"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "react-native": {
+    "constants": "constants-browserify",
+    "crypto": "react-native-crypto",
+    "path": "path-browserify",
+    "fs": "react-native-level-fs",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify",
+    "vm": "vm-browserify"
+  },
+  "browser": {
+    "constants": "constants-browserify",
+    "crypto": "react-native-crypto",
+    "path": "path-browserify",
+    "fs": "react-native-level-fs",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify",
+    "vm": "vm-browserify"
   }
 }
